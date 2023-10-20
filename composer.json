@@ -11,8 +11,11 @@
         "laravel/breeze": "^1.25",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
+        "laravel/scout": "^10.5",
         "laravel/tinker": "^2.8",
         "predis/predis": "^2.2",
+        "spatie/laravel-medialibrary": "^10.13",
+        "teamtnt/laravel-scout-tntsearch-driver": "^13.2",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
