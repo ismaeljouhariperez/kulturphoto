@@ -9,9 +9,14 @@ import { Head, Link, useForm } from '@inertiajs/react';
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
+        surname: '',
+        nickname: '',
         email: '',
         password: '',
         password_confirmation: '',
+        address:'',
+        postalCode:'',
+        city:'',
     });
 
     useEffect(() => {
@@ -31,8 +36,25 @@ export default function Register() {
             <Head title="Register" />
 
             <form onSubmit={submit}>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="surname" value="Prénom" />
+
+                    <TextInput
+                        id="surname"
+                        name="surname"
+                        value={data.surname}
+                        className="mt-1 block w-full"
+                        autoComplete="surname"
+                        onChange={(e) => setData('surname', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.surname} className="mt-2" />
+                </div>
+
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Nom" />
 
                     <TextInput
                         id="name"
@@ -66,7 +88,21 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="nickname" value="Pseudo" />
+                    <TextInput 
+                        id="nickname"
+                        name="nickname"
+                        value={data.nickname}
+                        className="mt-1 block w-full"
+                        autoComplete="nickname"
+                        onChange={(e) => setData('nickname', e.target.value)}
+                        required
+                    />
+                    <InputError message={errors.nickname} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="password" value="Mot de passe" />
 
                     <TextInput
                         id="password"
@@ -83,7 +119,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+                    <InputLabel htmlFor="password_confirmation" value="Confirmer mot de passe" />
 
                     <TextInput
                         id="password_confirmation"
@@ -99,16 +135,58 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
+                <div className="mt-4">
+                    <InputLabel htmlFor="address" value="Adresse" />
+                    <TextInput 
+                        id="address"
+                        name="address"
+                        value={data.address}
+                        className="mt-1 block w-full"
+                        autoComplete="address"
+                        onChange={(e) => setData('address', e.target.value)}
+                        required
+                    />
+                    <InputError message={errors.address} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="postalCode" value="Code postal" />
+                    <TextInput 
+                        id="postalCode"
+                        name="postalCode"
+                        value={data.postalCode}
+                        className="mt-1 block w-full"
+                        autoComplete="postalCode"
+                        onChange={(e) => setData('postalCode', e.target.value)}
+                        required
+                    />
+                    <InputError message={errors.postalCode} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="city" value="Ville" />
+                    <TextInput 
+                        id="city"
+                        name="city"
+                        value={data.city}
+                        className="mt-1 block w-full"
+                        autoComplete="city"
+                        onChange={(e) => setData('city', e.target.value)}
+                        required
+                    />
+                    <InputError message={errors.city} className="mt-2" />
+                </div>
+
                 <div className="flex items-center justify-end mt-4">
                     <Link
                         href={route('login')}
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Already registered?
+                        Déjà enregistré(e)?
                     </Link>
 
                     <PrimaryButton className="ml-4" disabled={processing}>
-                        Register
+                        S'enregistrer
                     </PrimaryButton>
                 </div>
             </form>
