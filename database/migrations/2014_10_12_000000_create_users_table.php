@@ -14,9 +14,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('surname');
+            $table->string('nickname')->unique(); // nickname should be unique
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('address');
+            $table->string('postal_code', 10);
+            $table->string('city');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,6 +32,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['surname', 'nickname', 'address', 'postal_code', 'city']);
+        });    
     }
 };
