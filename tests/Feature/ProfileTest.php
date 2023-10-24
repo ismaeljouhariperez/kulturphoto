@@ -19,6 +19,10 @@ test('profile information can be updated', function () {
         ->actingAs($user)
         ->patch('/profile', [
             'name' => 'Test User',
+            'surname' => 'User Surname',
+            'address' => '123 Test Address',
+            'postalCode' => '67200',
+            'city' => 'Test City',
             'email' => 'test@example.com',
         ]);
 
@@ -29,6 +33,10 @@ test('profile information can be updated', function () {
     $user->refresh();
 
     $this->assertSame('Test User', $user->name);
+    $this->assertSame('User Surname', $user->surname);
+    $this->assertSame('123 Test Address', $user->address);
+    $this->assertSame('67200', $user->postalCode);
+    $this->assertSame('Test City', $user->city);
     $this->assertSame('test@example.com', $user->email);
     $this->assertNull($user->email_verified_at);
 });

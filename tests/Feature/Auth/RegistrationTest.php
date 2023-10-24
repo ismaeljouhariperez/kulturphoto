@@ -11,9 +11,15 @@ test('registration screen can be rendered', function () {
 test('new users can register', function () {
     $response = $this->post('/register', [
         'name' => 'Test User',
+        'surname' => 'User Surname',
+        'nickname' => 'testNickname',
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
+        'address' => '123 Test Address',
+        'postalCode' => '67200',
+        'city' => 'Test city',
+        'address' => 'Test address',
     ]);
 
     $this->assertAuthenticated();
