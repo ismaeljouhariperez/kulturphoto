@@ -18,12 +18,20 @@ test('profile information can be updated', function () {
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
-            'surname' => 'User Surname',
-            'address' => '123 Test Address',
-            'postalCode' => '67200',
+            'name' => 'Updated Test User',
+            'surname' => 'Updated User Surname',
+            'address' => '456 Updated Address',
+            'postalCode' => '67500',
             'city' => 'Test City',
             'email' => 'test@example.com',
+            'city' => 'Updated city',
+            'profile_picture' => 'path/to/updated/image.jpg',
+            'description' => 'This is an updated user description limited to 300 characters.',
+            'gender' => 'Prefer not to say',
+            'phone_number' => '0123456781',
+            // Profile picture updates will be handled in separate tests 
+            // as they involve file uploads.
+            
         ]);
 
     $response
@@ -32,13 +40,17 @@ test('profile information can be updated', function () {
 
     $user->refresh();
 
-    $this->assertSame('Test User', $user->name);
-    $this->assertSame('User Surname', $user->surname);
-    $this->assertSame('123 Test Address', $user->address);
-    $this->assertSame('67200', $user->postalCode);
-    $this->assertSame('Test City', $user->city);
+    $this->assertSame('Updated Test User', $user->name);
+    $this->assertSame('Updated User Surname', $user->surname);
+    $this->assertSame('456 Updated Address', $user->address);
+    $this->assertSame('0123456781', $user->phone_number);
+    $this->assertSame('67500', $user->postalCode);
+    $this->assertSame('Updated city', $user->city);
+    $this->assertSame('This is an updated user description limited to 300 characters.', $user->description);
+    $this->assertSame('Prefer not to say', $user->gender);
     $this->assertSame('test@example.com', $user->email);
     $this->assertNull($user->email_verified_at);
+    
 });
 
 test('email verification status is unchanged when the email address is unchanged', function () {

@@ -22,6 +22,10 @@ class ProfileUpdateRequest extends FormRequest
             'address' => ['required', 'string', 'max:255'],  // New rule for address
             'postalCode' => ['required', 'string', 'max:10'],  // New rule for postalCode
             'city' => ['required', 'string', 'max:255'],  // New rule for city
+            'description' => ['string', 'max:300', 'nullable'], // Nullable
+            'phone_number' => ['nullable', 'regex:/french_phone_regex/', 'unique:users'],
+            'gender' => ['nullable', 'in:male,female,other,prefer_not_to_say'],
+            // Profile picture validation will be exec separately during the upload process.
         ];
     }    
 }

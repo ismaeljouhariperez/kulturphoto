@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('postal_code', 10);
             $table->string('city');
+            $table->string('profile_picture')->nullable();
+            $table->string('description', 300)->nullable();
+            $table->string('phone_number')->nullable()->unique();
+            $table->enum('gender', ['male', 'female', 'other', 'prefer_not_to_say'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -33,7 +37,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['surname', 'nickname', 'address', 'postal_code', 'city']);
+            $table->dropColumn(['surname', 'nickname', 'address', 'postal_code', 'city', 'profile_picture', 'description', 'phone_number', 'gender']);
         });    
     }
 };

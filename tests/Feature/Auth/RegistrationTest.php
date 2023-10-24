@@ -19,6 +19,13 @@ test('new users can register', function () {
         'address' => '123 Test Address',
         'postalCode' => '67200',
         'city' => 'Test city',
+        'description' => 'This is a user description limited to 300 characters.',
+        'gender' => 'Female',
+        'email' => 'test@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+        'phone_number' => '0123456789',
+        // No profile picture test here as it involves file uploads.
     ]);
 
     $this->assertAuthenticated();
