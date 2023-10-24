@@ -19,7 +19,6 @@ test('new users can register', function () {
         'address' => '123 Test Address',
         'postalCode' => '67200',
         'city' => 'Test city',
-        'address' => 'Test address',
     ]);
 
     $this->assertAuthenticated();
