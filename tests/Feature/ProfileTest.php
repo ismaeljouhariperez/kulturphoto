@@ -21,7 +21,7 @@ test('profile information can be updated', function () {
             'name' => 'Updated Test User',
             'surname' => 'Updated User Surname',
             'address' => '456 Updated Address',
-            'postalCode' => '67500',
+            'postal_code' => '67500',
             'city' => 'Test City',
             'email' => 'test@example.com',
             'city' => 'Updated city',
@@ -44,7 +44,7 @@ test('profile information can be updated', function () {
     $this->assertSame('Updated User Surname', $user->surname);
     $this->assertSame('456 Updated Address', $user->address);
     $this->assertSame('0123456781', $user->phone_number);
-    $this->assertSame('67500', $user->postalCode);
+    $this->assertSame('67500', $user->postal_code);
     $this->assertSame('Updated city', $user->city);
     $this->assertSame('This is an updated user description limited to 300 characters.', $user->description);
     $this->assertSame('Prefer not to say', $user->gender);

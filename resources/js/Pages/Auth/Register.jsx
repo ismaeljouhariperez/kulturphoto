@@ -15,7 +15,7 @@ export default function Register() {
         password: '',
         password_confirmation: '',
         address:'',
-        postalCode:'',
+        postal_code:'',
         city:'',
     });
 
@@ -150,17 +150,17 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="postalCode" value="Code postal" />
+                    <InputLabel htmlFor="postal_code" value="Code postal" />
                     <TextInput 
-                        id="postalCode"
-                        name="postalCode"
-                        value={data.postalCode}
+                        id="postal_code"
+                        name="postal_code"
+                        value={data.postal_code}
                         className="mt-1 block w-full"
-                        autoComplete="postalCode"
-                        onChange={(e) => setData('postalCode', e.target.value)}
+                        autoComplete="postal_code"
+                        onChange={(e) => setData('postal_code', e.target.value)}
                         required
                     />
-                    <InputError message={errors.postalCode} className="mt-2" />
+                    <InputError message={errors.postal_code} className="mt-2" />
                 </div>
 
                 <div className="mt-4">

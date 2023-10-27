@@ -17,7 +17,7 @@ test('new users can register', function () {
         'password' => 'password',
         'password_confirmation' => 'password',
         'address' => '123 Test Address',
-        'postalCode' => '67200',
+        'postal_code' => '67200',
         'city' => 'Test city',
         'description' => 'This is a user description limited to 300 characters.',
         'gender' => 'Female',

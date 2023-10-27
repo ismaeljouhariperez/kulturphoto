@@ -20,7 +20,7 @@ class ProfileUpdateRequest extends FormRequest
             'surname' => ['required', 'string', 'max:255'],  // New rule for surname
             'email' => ['required', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'address' => ['required', 'string', 'max:255'],  // New rule for address
-            'postalCode' => ['required', 'string', 'max:10'],  // New rule for postalCode
+            'postal_code' => ['required', 'string', 'max:10'],  // New rule for postal_code
             'city' => ['required', 'string', 'max:255'],  // New rule for city
             'description' => ['string', 'max:300', 'nullable'], // Nullable
             'phone_number' => ['nullable', 'regex:/french_phone_regex/', 'unique:users'],

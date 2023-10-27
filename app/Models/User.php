@@ -26,7 +26,7 @@ class User extends Authenticatable implements HasMedia
         'email',
         'password',
         'address',  // Ensure address is fillable
-        'postalCode', // Ensure postalCode is fillable
+        'postal_code', // Ensure postal_code is fillable
         'city', // Ensure city is fillable
         'gender',
         'description',

@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'address' => 'required|string|max:255', // New rule for address
-            'postalCode' => 'required|string|max:10', // New rule for postalCode
+            'postal_code' => 'required|string|max:10', // New rule for postal_code
             'city' => 'required|string|max:255', // New rule for city
             'profile_picture' => 'nullable|image|max:2048', // Validates that it's an image and limited to 2MB.
             'description' => 'nullable|string|max:300',     // Validates that it's a string and limited to 300 characters.
@@ -53,9 +53,8 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'address' => $request->address, // Save address to the database
-            'postalCode' => $request->postalCode, // Save postalCode to the database
+            'postal_code' => $request->postal_code, // Save postal_code to the database
             'city' => $request->city, // Save city to the database
-            'profile_picture' => $request->file('profile_picture')->store('profile_pictures'), // Store profile picture in a specific directory.
             'description' => $request->description,
             'phone' => $request->phone,
             'gender' => $request->gender,
