@@ -30,7 +30,7 @@ export default function UpdateEmailForm({ mustVerifyEmail, status, className = '
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="email" value="Email" />
+                    <InputLabel htmlFor="email" value="Mon Email" />
 
                     <TextInput
                         id="email"
@@ -68,7 +68,7 @@ export default function UpdateEmailForm({ mustVerifyEmail, status, className = '
                 )}
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Enregistrer</PrimaryButton>
+                    <PrimaryButton disabled={processing}>Changer</PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}

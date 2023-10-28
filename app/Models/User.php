@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia, MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
@@ -60,4 +60,11 @@ class User extends Authenticatable implements HasMedia
             ->useDisk('local')  // or any other disk you want to store media on
             ->singleFile();     // Only one file in this collection
     }
+
+    // This will override the default method from MustVerifyEmail
+    // and send a custom notification instead of the default one
+    // public function sendEmailVerificationNotification()
+    // {
+    //     $this->notify(new \App\Notifications\CustomVerifyEmail);
+    // }
 }
